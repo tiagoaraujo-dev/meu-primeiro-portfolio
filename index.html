@@ -5,7 +5,8 @@
     <title>O Meu Primeiro Site</title>
     <style>
         /* O DESIGN FICA AQUI DENTRO */
-        body {
+        body 
+        {
             background-color: #0f172a; 
             color: #f8fafc;            
             font-family: sans-serif;   
@@ -74,10 +75,21 @@
             background-color: #38bdf8;
             color: #0f172a !important; 
             transform: translateY(-2px); 
+        }         /* Quando a página tiver a classe "modo-claro", aplica estas cores: */
+        body.modo-claro {
+            background-color: #f1f5f9; /* Cinzento muito claro, quase branco */
+            color: #0f172a;            /* Letras em azul-escuro */
         }
+        body.modo-claro p {
+            color: #334155;            /* Parágrafos num cinzento escuro legível */
+        }
+
     </style> <!-- ESTA ERA A TAG QUE ESTAVA EM FALTA! -->
 </head>
 <body>
+        <!-- Botão para alternar o tema -->
+        <button id="botaoTema" style="margin-bottom: 20px; background-color: #64748b;">Mudar Tema 🌓</button>
+
 
     <h1>Olá, Mundo! 🇵🇹</h1>
     
@@ -86,7 +98,7 @@
     <input type="text" id="nomeUtilizador" placeholder="Escreve aqui o teu nome...">
     <br><br>
 
-    <button>Enviar Candidatura</button>
+    <button id="botaoEnviar">Enviar Candidatura</button>
     
     <br><br>
     
@@ -114,11 +126,20 @@
     <br><br><br>
 
     <script>
-        /* A LÓGICA FICA AQUI DENTRO */
-        const botao = document.querySelector('button');
+        // 1. Selecionamos o botão do tema pelo ID dele
+        const botaoTema = document.getElementById('botaoTema');
+        
+        // 2. Criámos um ID para o botão de enviar (vamos garantir que o HTML o tem)
+        const botaoEnviar = document.getElementById('botaoEnviar');
         const caixaNome = document.getElementById('nomeUtilizador');
 
-        botao.addEventListener('click', () => {
+        // LÓGICA DO TEMA: Só mexe nas cores, não mexe no nome!
+        botaoTema.addEventListener('click', () => {
+            document.body.classList.toggle('modo-claro');
+        });
+
+        // LÓGICA DO ENVIO: Só mexe no nome, não mexe nas cores!
+        botaoEnviar.addEventListener('click', () => {
             const nome = caixaNome.value;
 
             if (nome.trim() === "") {
@@ -128,5 +149,6 @@
             }
         });
     </script>
+
 </body>
 </html>
