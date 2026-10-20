@@ -75,21 +75,21 @@
             background-color: #38bdf8;
             color: #0f172a !important; 
             transform: translateY(-2px); 
-        }         /* Quando a página tiver a classe "modo-claro", aplica estas cores: */
+        }
+        /* Quando a página tiver a classe "modo-claro", aplica estas cores: */
         body.modo-claro {
-            background-color: #f1f5f9; /* Cinzento muito claro, quase branco */
-            color: #0f172a;            /* Letras em azul-escuro */
+            background-color: #f1f5f9; 
+            color: #0f172a;            
         }
         body.modo-claro p {
-            color: #334155;            /* Parágrafos num cinzento escuro legível */
+            color: #334155;            
         }
-
-    </style> <!-- ESTA ERA A TAG QUE ESTAVA EM FALTA! -->
+    </style>
 </head>
 <body>
-        <!-- Botão para alternar o tema -->
-        <button id="botaoTema" style="margin-bottom: 20px; background-color: #64748b;">Mudar Tema 🌓</button>
-
+    
+    <!-- Botão para alternar o tema -->
+    <button id="botaoTema" style="margin-bottom: 20px; background-color: #64748b;">Mudar Tema 🌓</button>
 
     <h1>Olá, Mundo! 🇵🇹</h1>
     
@@ -102,12 +102,11 @@
     
     <br><br>
     
-        <!-- Desenho profissional do logótipo gerado por código (Nunca falha) -->
-        <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://w3.org" style="margin-top: 15px;">
-            <rect width="100" height="100" rx="20" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
-            <path d="M35 40 L20 50 L35 60 M65 40 L80 50 L65 60 M45 65 L55 35" fill="none" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    
+    <!-- Desenho profissional do logótipo gerado por código -->
+    <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://w3.org" style="margin-top: 15px;">
+        <rect width="100" height="100" rx="20" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+        <path d="M35 40 L20 50 L35 60 M65 40 L80 50 L65 60 M45 65 L55 35" fill="none" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
 
     <hr style="border: 1px solid #334155; margin: 40px 0;">
 
@@ -126,19 +125,33 @@
     <br><br><br>
 
     <script>
-        // 1. Selecionamos o botão do tema pelo ID dele
-        const botaoTema = document.getElementById('botaoTema');
+        // ======= PRÁTICA DO DIA 5: VARIÁVEIS NA MEMÓRIA =======
+        const pais = "Portugal"; 
+        let idade = 26;          
+        let utilizadorPremium = false; 
         
-        // 2. Criámos um ID para o botão de enviar (vamos garantir que o HTML o tem)
+        const cidade = "Olhão";
+        let anosDeEstudo = 1;
+
+        console.log("A minha cidade é:", cidade);
+        console.log("Anos de estudo:", anosDeEstudo);
+        
+        console.log("O meu país é:", pais);
+        console.log("A minha idade atual é:", idade);
+
+        idade = 27; 
+        console.log("No próximo ano terei:", idade);
+        // ======================================================
+
+        // ======= LÓGICA ANTIGA DOS BOTÕES =======
+        const botaoTema = document.getElementById('botaoTema');
         const botaoEnviar = document.getElementById('botaoEnviar');
         const caixaNome = document.getElementById('nomeUtilizador');
 
-        // LÓGICA DO TEMA: Só mexe nas cores, não mexe no nome!
         botaoTema.addEventListener('click', () => {
             document.body.classList.toggle('modo-claro');
         });
 
-        // LÓGICA DO ENVIO: Só mexe no nome, não mexe nas cores!
         botaoEnviar.addEventListener('click', () => {
             const nome = caixaNome.value;
 
@@ -149,6 +162,5 @@
             }
         });
     </script>
-
 </body>
 </html>
